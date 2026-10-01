@@ -11,6 +11,7 @@ export const environment = {
     projectId: "oshop-84e39",
     storageBucket: "oshop-84e39.firebasestorage.app",
     messagingSenderId: "512767087354",
-    appId: "1:512767087354:web:e0ea48b14a8b800c36af43"
+    appId: "1:512767087354:web:e0ea48b14a8b800c36af43",
+    databaseURL: "https://oshop-84e39-default-rtdb.europe-west1.firebasedatabase.app/"
   }
 };
