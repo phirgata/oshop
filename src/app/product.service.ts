@@ -18,7 +18,7 @@ export class ProductService {
   getAll(): Observable<Product[]> {
     return this.db.list('/products').snapshotChanges().pipe(
       map(changes => changes.map(p => ({
-            key: p.key,
+            $key: p.key,
             ...(p.payload.val() as object)
           }) as Product
         )

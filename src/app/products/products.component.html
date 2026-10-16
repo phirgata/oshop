@@ -3,30 +3,14 @@
     <div class="col-3">
       <product-filter [category]="category"></product-filter>
     </div>
-    <div class="col">
+    <div class="col" *ngIf="cart$ | async as cart">
       <ng-container *ngFor="let p of filteredProducts as products; let i = index; even as isEven">
         <div *ngIf="isEven" class="row">
           <div class="col">
-            <!-- <div class="card" style="width: 15rem;">
-              <img src="{{ p.imageUrl }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ p.title }}</h5>
-                <p class="card-text">{{ p.price | currency:'USD':"symbol" }}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
-              </div>
-            </div> -->
-            <product-card [product]="p"></product-card>
+            <product-card [product]="p" [shopping-cart]="cart"></product-card>
           </div>
           <div class="col">
-            <!-- <div class="card" style="width: 15rem;">
-              <img src="{{ products[i+1].imageUrl }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ products[i+1].title }}</h5>
-                <p class="card-text">{{ products[i+1].price | currency:'USD':"symbol" }}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
-              </div>
-            </div> -->
-            <product-card *ngIf="products.length - 1 > i" [product]="products[i+1]"></product-card>
+            <product-card *ngIf="products.length - 1 > i" [product]="products[i+1]" [shopping-cart]="cart"></product-card>
           </div>
         </div>
       </ng-container>
